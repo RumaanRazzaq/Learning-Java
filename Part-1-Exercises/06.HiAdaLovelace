@@ -1,0 +1,10 @@
+public class HiAdaLovelace {
+
+    public static void main(String[] args) {
+        // Stores string "name "in program memory 
+        String name = "Ada Lovelace";
+
+        // Concatenates two string literal and the variable name
+        System.out.println("Hi " + name + "!");
+    }
+}
