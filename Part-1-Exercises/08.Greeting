@@ -1,0 +1,20 @@
+// Introduces tool to read input
+import java.util.Scanner;
+
+public class Greeting {
+
+    public static void main(String[] args) 
+    {
+        // Creation of tool called "scanner" to read user input 
+        Scanner scanner = new Scanner(System.in);
+
+        // Asks user to input their name
+        System.out.println("What's your name?");
+
+        // Reads user's input and stores it as string "name" in program memory
+        String name = scanner.nextLine();
+
+        // Outputs greeting using variable and string literal
+        System.out.println("Hi "+ name);
+    }
+}
