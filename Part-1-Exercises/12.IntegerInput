@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class IntegerInput {
+
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Asks user to input a number
+        System.out.println("Give a number:");
+
+        // Reads user's output and converts it from string to integer, stores value as integer "number"
+        Integer number = Integer.valueOf(scanner.nextLine());
+
+        // Outputs user's number 
+        System.out.println("You gave the number " + number);
+    }
+}

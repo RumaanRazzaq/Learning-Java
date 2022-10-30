@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class BooleanInput {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Asks user to input a boolean value
+        System.out.println("Write something:");
+
+        // Reads user's output and converts it from string to boolean, stores value as "value"
+        Boolean value = Boolean.valueOf(scanner.nextLine());
+
+        // Outputs user's number 
+        System.out.println("True or false? " + value);
+
+    }
+}
