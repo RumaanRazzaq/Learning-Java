@@ -1,0 +1,19 @@
+// We introduce the scanner tool to read user input
+import java.util.Scanner;
+
+public class Message {
+
+    public static void main(String[] args) {
+        // Creation of tool to read input and name it scanner
+        Scanner scanner = new Scanner(System.in);
+        
+        // Ask user to write message
+        System.out.println("Write a message:");
+        
+        // Read string written by user and assign it to program memory
+        String message = scanner.nextLine();
+        
+        // Prints out user's string saved as message
+        System.out.println(message);
+    }
+}
