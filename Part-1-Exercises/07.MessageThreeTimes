@@ -1,0 +1,22 @@
+// Introduces tool to read input
+import java.util.Scanner;
+
+public class MessageThreeTimes {
+
+    public static void main(String[] args) 
+    {
+        // Creation of tool called "scanner" to read user input 
+        Scanner scanner = new Scanner(System.in);
+
+        // Asks user to input a message
+        System.out.println("Write a message:");
+
+        // Reads user's input and stores it as string "message" in program memory 
+        String message = scanner.nextLine();
+
+        // Prints user's message 3 times
+        System.out.println(message);
+        System.out.println(message);
+        System.out.println(message);
+    }
+}
