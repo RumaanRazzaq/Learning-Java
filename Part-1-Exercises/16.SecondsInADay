@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class SecondsInADay {
+
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        // Asks user to input number of days and stores it as integer value "days"
+        System.out.println("How many days would you like to convert to seconds?");
+        Integer days = Integer.valueOf(scanner.nextLine());
+
+        // Calculates and prints number of seconds
+        System.out.println(days * 24 * 3600);
+    }
+}

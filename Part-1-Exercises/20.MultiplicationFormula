@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class MultiplicationFormula {
+
+    public static void main(String[] args) 
+    {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Asks user to input two numbers
+        System.out.println("Give the first number:");
+        int first = Integer.valueOf(scanner.nextLine());
+        System.out.println("Give the second number:");
+        int second = Integer.valueOf(scanner.nextLine());
+
+        // Outputs the product of two numbers, showing full calculation
+        System.out.println(first + " * " + second + " = " + (first * second));
+    }
+}
