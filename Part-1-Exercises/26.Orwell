@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Orwell {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        // Asks user for number and stores as integer num
+        System.out.println("Give a number:");
+        int num = Integer.valueOf(scan.nextLine());
+
+        // Checks if num is equal to 1984, then prints statement if true
+        if (num == 1984) {
+            System.out.println("Orwell");
+        }
+    }
+}

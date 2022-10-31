@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class CheckingTheAge {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        // Asks user to enter their age and stores input
+        System.out.println("Enter the first string:");
+        int age = Integer.valueOf(scan.nextLine());
+
+        // Compares if age is between 0 and 120, prints statement if true or false
+        if (age > -1 && age < 121) {
+            System.out.println("Ok");
+        } else {
+            System.out.println("Impossible!");
+        }
+    }
+}

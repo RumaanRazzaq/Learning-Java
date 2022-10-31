@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Adulthood {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        // Asks user's age and stores input
+        System.out.println("how old are you?");
+        int num = Integer.valueOf(scan.nextLine());
+
+        // Checks if age is less than 18, prints statements depending on true or false
+        if (num < 18) {
+            System.out.println("You are not an adult");
+        } else {
+            System.out.println("You are an adult");
+        }
+    }
+}
