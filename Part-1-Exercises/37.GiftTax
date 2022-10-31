@@ -5,7 +5,7 @@ public class GiftTax {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        // Asks user to enter a year and stores input
+        // Asks user to enter a gift value and stores input
         System.out.println("Value of the gift?");
         int giftValue = Integer.valueOf(scan.nextLine());
 
