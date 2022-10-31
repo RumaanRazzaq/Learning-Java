@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Counting {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Stores user input as variable num
+        int num = Integer.valueOf(scanner.nextLine());
+
+        // Prints numbers up to and including num
+        for (int i = 0; i < num + 1; i++) {
+            System.out.println(i);
+        } 
+    }
+}

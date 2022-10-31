@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class SumOfASequenceTheSequel {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Asks user for two numbers and stores inputs
+        System.out.println("First number?");
+        int first = Integer.valueOf(scanner.nextLine());
+        System.out.println("Last number?");
+        int second = Integer.valueOf(scanner.nextLine());
+
+        // Initialises variable sum and adds numbers from first to second, then outputs sum
+        int sum = 0;
+        for (int i = first; i <= second; i++) {
+            sum = sum + i;
+        } 
+        System.out.println("The sum is " + sum);
+    }
+}

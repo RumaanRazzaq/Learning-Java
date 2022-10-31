@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class FromWhereToWhere {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Asks user for start and end points and stores as integers
+        System.out.println("Where to?");
+        int end = Integer.valueOf(scanner.nextLine());
+        System.out.println("Where from?");
+        int start =Integer.valueOf(scanner.nextLine());
+
+        // Checks if start is lower than end, then completes count from start to end
+        if (start <= end) {
+            for (int i = start; i <= end; i++) {
+                System.out.println(i);
+            }
+        }
+    }
+}
