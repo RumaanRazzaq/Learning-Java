@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class SquareRootOfSum {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Reads and stores two integers 
+        int num1 = Integer.valueOf(scanner.nextLine());
+        int num2 = Integer.valueOf(scanner.nextLine());
+
+        // Adds together numbers and square roots, outputs result
+        double result = Math.sqrt(num2 + num1);
+        System.out.println(result);
+    }
+}

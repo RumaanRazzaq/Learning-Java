@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class AverageOfPositiveNumbers {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Initialises variable
+        int sum = 0;
+        int count = 0;
+
+        // Loops until number input is 0
+        while (true) {
+            System.out.println("Give a number:");
+            int number = Integer.valueOf(scanner.nextLine());
+            // Checks to see if input meets conditions
+            if (number == 0) {
+                break;
+            } 
+            if (number > 0) {
+                sum = sum + number;
+                count++;
+            }
+        }
+
+        // Outputs statement depending on condition
+        if (count == 0) {
+            System.out.println("Cannot calulate the average");
+        }
+        if (count > 0) {
+            double result = 1.0 * sum / count;
+            System.out.println("Average of numbers: " + result);       
+        }
+    }
+}

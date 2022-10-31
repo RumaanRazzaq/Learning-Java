@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class AbsoluteValue {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Reads users input and stores as integer
+        int num = Integer.valueOf(scanner.nextLine());
+
+        // Checks if num is less than 0, and outputs results depending on true or false
+        if (num < 0) {
+            System.out.println(num * -1);
+        } else {
+            System.out.println(num);
+        }
+    }
+}

@@ -1,1 +1,14 @@
+import java.util.Scanner;
 
+public class Squared {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Stores user input as integer
+        int num = Integer.valueOf(scanner.nextLine());
+
+        // Outputs num squared
+        System.out.println(num * num);
+    }
+}
