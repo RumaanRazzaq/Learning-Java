@@ -1,0 +1,17 @@
+public class Smallest {
+
+    public static int smallest(int number1, int number2) {
+        // Checks if which number is smallest and returns number
+        if (number1 < number2) {
+            return number1;
+        } else {
+            return number2;
+        }
+    }
+
+    public static void main(String[] args) {
+        // Calls method and prints statement using returned integer
+        int result = smallest(2, 7);
+        System.out.println("Smallest: " + result);
+    }
+}

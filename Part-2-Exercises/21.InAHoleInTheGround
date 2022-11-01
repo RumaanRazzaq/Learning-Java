@@ -1,0 +1,12 @@
+public class InAHoleInTheGround {
+
+    public static void main(String[] args) {
+        // Calls method printText
+        printText();
+    }
+    
+    public static void printText() {
+        // Outputs statement
+        System.out.println("In a hole in the ground there lived a method");
+    }
+}

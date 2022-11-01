@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class DivisibleByThree {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        divisibleByThreeInRange(2, 10);
+    }
+
+    public static void divisibleByThreeInRange(int a, int b) {
+        // Checks if numbers from a to b are multiples of 3, if so prints number
+        for (int i = a; i <= b; i++) {
+            if (i % 3 == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}

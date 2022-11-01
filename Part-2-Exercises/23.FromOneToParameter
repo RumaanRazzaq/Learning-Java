@@ -1,0 +1,14 @@
+public class FromOneToParameter {
+
+    public static void main(String[] args) {
+        // Calls method and passes in number 5
+        printUntilNumber(5);
+    }
+
+    public static void printUntilNumber(int number) {
+        // Prints numbers from 1 to number 
+        for (int i = 1; i <= number; i++) {
+            System.out.println(i);
+        }
+    }
+}
