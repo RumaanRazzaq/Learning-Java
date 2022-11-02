@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+public class Sum {
+
+    public static void main(String[] args) {            
+        // Creates new list and adds items to list
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(3);
+        numbers.add(2);
+        numbers.add(6);
+        numbers.add(-1);
+
+        // Calls method and prints result
+        System.out.println(sum(numbers));
+
+    }
+
+    public static int sum(ArrayList<Integer> numbers) {
+        // Calculates sum of items in list
+        int sum = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            sum = sum + numbers.get(i);
+        }
+        return sum;
+    }
+}

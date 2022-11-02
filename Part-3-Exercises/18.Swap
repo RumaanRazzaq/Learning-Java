@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Swap {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Creates new array and adds items to array
+        int[] array = new int[5];
+        array[0] = 1;
+        array[1] = 3;
+        array[2] = 5;
+        array[3] = 7;
+        array[4] = 9;
+
+        // Prints all items in array
+        int index = 0;
+        while (index < array.length) {
+            System.out.println(array[index]);
+            index++;
+        }
+        System.out.println("");
+
+        // Swaps two items in array
+        System.out.println("Give two indices to swap:");
+        int first = Integer.valueOf(scanner.nextLine());
+        int second = Integer.valueOf(scanner.nextLine());
+        int temporary = array[first];
+        array[first] = array[second];
+        array[second] = temporary;
+
+        // Prints all items in array
+        System.out.println("");
+        index = 0;
+        while (index < array.length) {
+            System.out.println(array[index]);
+            index++;
+        }
+    }
+}

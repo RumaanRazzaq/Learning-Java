@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class IndexOfSmallest {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Creates new list and adds items to list
+        ArrayList<Integer> list = new ArrayList<>();
+        while (true) {
+            int input = Integer.valueOf(scanner.nextLine());
+            if (input == 9999) {
+                break;
+            }
+
+            list.add(input);
+        }
+        System.out.println("");
+
+        // Searches for users number and prints if found
+        int smallest = Integer.valueOf(scanner.nextLine());
+        int smallestIndex = 0;
+        for(int i = 0; i < list.size(); i++)
+        {
+            if(list.get(i) < smallest)
+            {
+                smallest = list.get(i);
+                smallestIndex = i;
+            }
+        }
+        System.out.println("Smallest number: " + smallest);
+        System.out.println("Found at index: " + smallestIndex);
+    }
+}

@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class IndexOf {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Creates new list and adds items to list
+        ArrayList<Integer> list = new ArrayList<>();
+        while (true) {
+            int input = Integer.valueOf(scanner.nextLine());
+            if (input == -1) {
+                break;
+            }
+
+            list.add(input);
+        }
+
+        // Asks user for a number to search for
+        System.out.println("");
+        System.out.print("Search for? ");
+        int num = Integer.valueOf(scanner.nextLine());
+
+        // Searches for users number and prints if found
+        for(int i = 0; i < list.size(); i++)
+        {
+            if(list.get(i) == num)
+            {
+                System.out.println(num + " is at index " + i);
+            }
+        }
+    }
+}

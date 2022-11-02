@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class LastInList {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Creates a new list
+        ArrayList<String> list = new ArrayList<>();
+
+        // Takes input from user and stores input within list
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("")) {
+                break;
+            }
+
+            list.add(input);
+        }
+
+        // Prints last item in list
+        System.out.println(list.get(list.size() - 1));
+    }
+}

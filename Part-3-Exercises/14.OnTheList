@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class OnTheList {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Creates a new list and adds items to list
+        ArrayList<String> list = new ArrayList<>();
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("")) {
+                break;
+            }
+            list.add(input);
+        }
+
+        // Searches for item in list and reveals if found
+        System.out.print("Search for? ");
+        String search = scanner.nextLine();
+        Boolean found = list.contains(search);
+        if (found) {
+            System.out.println(search + " was found!");
+        }
+        else {
+            System.out.println(search + " was not found!");
+        }
+    }
+}

@@ -1,0 +1,17 @@
+public class SumOfArray {
+
+    public static void main(String[] args) {
+        // Creates a new array and calls method
+        int[] array = {5, 1, 3, 4, 2};
+        System.out.println(sumOfNumbersInArray(array));
+    }
+
+    public static int sumOfNumbersInArray(int[] array) {
+        // Calculates sum of items in array and returns sum
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum = sum + array[i];
+        }
+        return sum;
+    }
+}
