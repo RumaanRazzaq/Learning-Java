@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.concurrent.CountDownLatch;
+
+public class PersonalDetails {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Takes user input and splits it into words until empty string is entered
+        ArrayList<Integer> intList = new ArrayList<>();
+        ArrayList<String> stringList = new ArrayList<>();
+        int count = 0;
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("")) {
+                break;
+            }
+            String[] parts = input.split(",");
+            stringList.add(parts[0]);
+            intList.add(Integer.valueOf(parts[1]));
+            count++;
+        }
+
+        // Performs sum of birth years and checks which is longest name
+        String longestName = "";
+        int yearSum = 0;
+        for (int i = 0; i < stringList.size(); i++) {
+            if (stringList.get(i).length() > longestName.length()) {
+                longestName = stringList.get(i);
+            }
+         yearSum = yearSum + intList.get(i);
+        }
+
+        // Calculates average of birth years and prints longest name and average
+        double yearlyAverage = 1.0 * yearSum / count;
+        System.out.println("Longest name: " + longestName);
+        System.out.println("Average of the birth years: " + yearlyAverage);
+    }
+}

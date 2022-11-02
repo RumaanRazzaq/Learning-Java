@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class NameOfTheOldest {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Takes user input and splits it into words until empty string is entered
+        ArrayList<Integer> intList = new ArrayList<>();
+        ArrayList<String> stringList = new ArrayList<>();
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("")) {
+                break;
+            }
+            String[] parts = input.split(",");
+            stringList.add(parts[0]);
+            intList.add(Integer.valueOf(parts[1]));
+        }
+
+        // Checks which number is greatest, prints name of eldest 
+        int oldest = 0;
+        int oldestPos = 0;
+        for (int i = 0; i < intList.size(); i++) {
+            if (intList.get(i) > oldest) {
+                oldest = intList.get(i);
+                oldestPos = i;
+            }
+        }
+        System.out.print("Name of the oldest: " + stringList.get(oldestPos));
+    }
+}

@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class PrintThrice {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Asks user for string and stores it as variable string
+        System.out.print("Give a word: ");
+        String string = scanner.nextLine();
+
+        // Prints string three times
+        System.out.print(string);
+        System.out.print(string);
+        System.out.print(string);
+    }
+}

@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class LineByLine {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Takes user input and splits it into words until empty string is entered
+        String string = "hello";
+        while(!string.equals("")) {
+            string = scanner.nextLine();
+            String[] array = string.split(" ");
+
+            // Prints each word in array
+            if (array.length > 0) {
+                for (int i = 0; i < array.length; i++) {
+                    System.out.println(array[i]);
+                }
+            }
+        }
+    }
+}

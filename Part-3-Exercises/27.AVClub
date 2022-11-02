@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class AVClub {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Takes user input and splits it into words until empty string is entered
+        String string = "hello";
+        while(!string.equals("")) {
+            string = scanner.nextLine();
+            String[] array = string.split(" ");
+            
+            // Prints each word in array that contains av
+            for (int i = 0; i < array.length; i++) {
+                if (array[i].contains("av")) {
+                    System.out.println(array[i]);
+                }
+            }
+        }
+    }
+}

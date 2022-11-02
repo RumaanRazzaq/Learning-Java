@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class AgeOfTheOldest {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Takes user input and splits it into words until empty string is entered
+        ArrayList<Integer> list = new ArrayList<>();
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equals("")) {
+                break;
+            }
+            String[] parts = input.split(",");
+            list.add(Integer.valueOf(parts[1]));
+        }
+
+        // Checks which number is greatest, prints statement
+        int oldest = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) > oldest) {
+                oldest = list.get(i);
+            }
+        }
+        System.out.println("Age of the oldest: " + oldest);
+    }
+}

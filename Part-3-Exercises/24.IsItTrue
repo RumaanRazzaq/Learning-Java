@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class IsItTrue {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+         // Asks user for string and stores it as variable string
+         System.out.print("Give a word: ");
+         String string = scanner.nextLine();
+
+         // Checks if string is equal to "true", prints statement if true
+         if (string.equals("true")) {
+            System.out.println("You got it right!");
+         }
+         else {
+            System.out.println("Try again!");
+         }
+    }
+}
