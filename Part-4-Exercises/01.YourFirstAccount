@@ -1,0 +1,9 @@
+public class YourFirstAccount {
+
+    public static void main(String[] args) {
+        // Creates a instance of class Account and deposits money, prints balance
+        Account myAccount = new Account("Rumaans's account", 100.00);
+        myAccount.deposit(20);
+        System.out.println(myAccount.saldo());
+    }
+}

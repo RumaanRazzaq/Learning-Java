@@ -1,0 +1,14 @@
+public class YourFirstBankTransfer {
+
+    public static void main(String[] args) {
+        // Creates two instances of class account
+        Account matt = new Account("Matthews account", 1000);
+        Account myAccount = new Account("My account", 0);
+        
+        // Withdraws and deposits money and prints balances
+        matt.withdrawal(100.00);
+        myAccount.deposit(100.00);
+        System.out.println(matt.balance());
+        System.out.println(myAccount.balance());
+    }
+}

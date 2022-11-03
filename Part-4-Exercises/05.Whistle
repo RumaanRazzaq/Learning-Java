@@ -1,0 +1,15 @@
+// Created class Whistle in new file
+public class Whistle {
+    
+    private String sound;
+
+    // Constructor
+    public Whistle(String sound) {
+        this.sound = sound;
+    }
+
+    // Prints variable sound
+    public void sound() {
+        System.out.println(sound);
+    }
+}

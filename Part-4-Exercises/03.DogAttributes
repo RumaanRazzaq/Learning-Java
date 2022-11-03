@@ -1,0 +1,7 @@
+// Create new file called Dog.java which contains class Dog
+public class Dog {
+    
+    private String name;
+    private String breed;
+    private int age;
+}

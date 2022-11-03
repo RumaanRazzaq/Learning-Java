@@ -1,0 +1,19 @@
+// Creates class in new file
+public class Product {
+    
+    private Double price;
+    private int quantity;
+    private String name;
+
+    // Constructor
+    public Product(String initialName, double initialPrice, int initialQuantity) {
+        this.name = initialName;
+        this.quantity = initialQuantity;
+        this.price = initialPrice;
+    }
+
+    // Method to print product
+    public void printProduct() {
+        System.out.println(name + ", price " + price + ", " + quantity + " pcs");
+    }
+}
