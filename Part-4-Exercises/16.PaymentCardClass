@@ -1,0 +1,38 @@
+public class PaymentCard {
+    
+    private double balance;
+
+    // Constructor
+    public PaymentCard(double openingBalance) {
+        this.balance = openingBalance;
+    }
+
+    // Method to return money in account 
+    public String toString() {
+        return "The card has a balance of " + Double.toString(this.balance) + " euros";
+    }
+
+    // Method which withdraws money for affordable meal
+    public void eatAffordably() {
+        if(this.balance - 2.60 >= 0) {
+            this.balance = this.balance - 2.60;
+        } 
+    }
+    
+    // Method which withdraws money for hearty meal
+    public void eatHeartily() {
+        if(this.balance - 4.60 >= 0) {
+            this.balance = this.balance - 4.60;
+        }
+    }
+
+    // Method to deposit money
+    public void addMoney(double amount) {
+        if(amount < 0) {
+        } else if(150 - this.balance > amount) {
+            this.balance = this.balance + amount;
+        } else {
+            this.balance = 150.00;
+        }
+    }
+}

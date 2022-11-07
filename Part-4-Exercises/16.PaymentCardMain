@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class MainProgram {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Creates two instances of PaymentCard class
+        PaymentCard paulsCard = new PaymentCard(20);
+        PaymentCard mattsCard = new PaymentCard(30);
+
+        // Paul eats heartily, matt eats affordably, both account balances are displayed
+        paulsCard.eatHeartily();
+        mattsCard.eatAffordably();
+        System.out.println("Paul: The card has a balance of " + paulsCard + " euros");
+        System.out.println("Matt: The card has a balance of " + mattsCard + " euros");
+
+        // Paul deposits 20, matt eats heartily, both account balances are displayed 
+        paulsCard.addMoney(20);
+        mattsCard.eatHeartily();
+        System.out.println("Paul: The card has a balance of " + paulsCard + " euros");
+        System.out.println("Matt: The card has a balance of " + mattsCard + " euros");
+
+        // Paul eats affordably twice, matt deposits 50, both account balances are displayed
+        paulsCard.eatAffordably();
+        paulsCard.eatAffordably();
+        mattsCard.addMoney(50);
+        System.out.println("Paul: The card has a balance of " + paulsCard + " euros");
+        System.out.println("Matt: The card has a balance of " + mattsCard + " euros");
+    }
+}

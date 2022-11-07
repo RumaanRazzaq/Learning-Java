@@ -1,0 +1,14 @@
+public class Multiplier {
+    
+    private int num;
+
+    // Constructor
+    public Multiplier(int number) {
+        this.num = number;
+    }
+
+    // Method to return current num times by value passed into multiply method
+    public int multiply(int number) {
+        return this.num * number;
+    }
+}
