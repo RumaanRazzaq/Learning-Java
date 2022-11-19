@@ -1,0 +1,31 @@
+
+public class PaymentCard {
+
+    // Initialises variables
+    private double balance;
+
+    // Constructor, sets values of variables
+    public PaymentCard(double balance) {
+        this.balance = balance;
+    }
+
+    // Returns balance of PaymentCard
+    public double balance() {
+        return this.balance;
+    }
+
+    // Adds money to balance
+    public void addMoney(double increase) {
+        this.balance += increase;
+    }
+
+    // Attempts to remove money from account if future balance will be greater than 0
+    public boolean takeMoney(double amount) {
+        if(this.balance - amount < 0) {
+            return false;
+        } else {
+            this.balance = this.balance - amount;
+            return true;
+        }
+    }
+}
