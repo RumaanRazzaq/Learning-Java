@@ -1,0 +1,53 @@
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class SportStatistics {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        // Asks user for file name and team name, intialises count as well
+        System.out.println("File:");
+        String file = scan.nextLine();
+        System.out.println("Team:");
+        String team = scan.nextLine();
+        int gameCount = 0;
+        int wins = 0;
+        int losses = 0;
+
+        // Attempts to read the file specified by user
+        try(Scanner fileScan = new Scanner(Paths.get(file))) {
+            // Reads files and adds to count if team is equal to user input
+            while(fileScan.hasNextLine()) {
+                String line = fileScan.nextLine();
+                String [] parts = line.split(",");
+                String homeTeam = parts[0];
+                String awayTeam = parts[1];
+                int homePoints = Integer.valueOf(parts[2]);
+                int awayPoints = Integer.valueOf(parts[3]);
+                if(homeTeam.equals(team)) {
+                    gameCount++;
+                    if(homePoints < awayPoints) {
+                        losses++;
+                    } else {
+                        wins++;
+                    }
+                } else if(awayTeam.equals(team)) {
+                    gameCount++;
+                    if(homePoints < awayPoints) {
+                        wins++;
+                    } else {
+                        losses++;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("File cannot be read.");
+        }
+
+        System.out.println("Games: " + gameCount);
+        System.out.println("Wins: " + wins);
+        System.out.println("Losses: "+ losses);
+    }
+}
