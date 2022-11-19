@@ -1,0 +1,15 @@
+public class Fitbyte {
+    
+    private int age;
+    private int restingHR;
+
+    public Fitbyte(int age ,int restingHR) {
+        this.age = age;
+        this.restingHR = restingHR;
+    }
+
+    public double targetHeartRate(double percentageofMaximum) {
+        double maxHR = 206.3 - (0.711 * this.age);
+        return ((maxHR - this.restingHR) * percentageofMaximum) + this.restingHR;
+    }
+}
