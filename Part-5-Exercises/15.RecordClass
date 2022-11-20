@@ -1,0 +1,37 @@
+public class Record {
+
+    private String identifier;
+    private String name;
+
+    public Record(String identifer, String name) {
+        this.identifier = identifer;
+        this.name = name;
+    }
+
+    public String toString() {
+        return identifier + ": " + name;    
+    }
+
+    public boolean equals(Object compared) {
+        // if the variables are located in the same position, they are equal
+        if (this == compared) {
+            return true;
+        }
+
+        // if the compared object is not of type Person, the objects are not equal
+        if (!(compared instanceof Record)) {
+            return false;
+        }
+
+        // convert the object into a Person object
+        Record comparedRecord = (Record) compared;
+
+        // if the values of the object variables are equal, the objects are equal
+        if(this.identifier.equals(comparedRecord.identifier)) {
+            return true;
+        }
+
+        // otherwise the objects are not equal
+        return false;
+    }
+}

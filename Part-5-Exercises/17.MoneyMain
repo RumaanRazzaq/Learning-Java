@@ -1,0 +1,22 @@
+public class MainProgram {
+
+    public static void main(String[] args) {
+        // Tests Part 1
+        Money a = new Money(10,50);
+        Money b = new Money(5,15);
+        Money c = a.plus(b);
+        System.out.println(a);  // 10.50e
+        System.out.println(b);  // 5.15e
+        System.out.println(c);  // 15.65e
+
+        // Tests Part 2
+        System.out.println(a.lessThan(b));  //false
+        System.out.println(b.lessThan(c));  //true
+
+        // Tests Part 3
+        Money d = a.minus(b);
+        System.out.println(a);  // 10.00e
+        System.out.println(b);  // 5.15e
+        System.out.println(d);  // 5.35e
+    }
+}

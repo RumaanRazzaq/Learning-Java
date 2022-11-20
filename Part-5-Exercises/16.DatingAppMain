@@ -1,0 +1,17 @@
+public class Main {
+
+    public static void main(String[] args) {
+        
+        // test your program here!
+        SimpleDate date = new SimpleDate(1, 1, 1);
+        System.out.println(date);
+        date.advance();
+        System.out.println(date);
+        date.advance(15);
+        System.out.println(date);
+        date.advance(360);
+        System.out.println(date);
+        SimpleDate date2 = date.afterNumberOfDays(850);
+        System.out.println(date2);
+    }
+}

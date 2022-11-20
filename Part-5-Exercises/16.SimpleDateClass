@@ -1,0 +1,72 @@
+public class SimpleDate {
+
+    // Intialises variables
+    private int day;
+    private int month;
+    private int year;
+
+    // Contructor, sets values of variables
+    public SimpleDate(int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return this.day + "." + this.month + "." + this.year;
+    }
+
+    public boolean before(SimpleDate compared) {
+        if (this.year < compared.year) {
+            return true;
+        }
+
+        if (this.year == compared.year && this.month < compared.month) {
+            return true;
+        }
+
+        if (this.year == compared.year && this.month == compared.month &&
+                 this.day < compared.day) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Advances date by 1 day
+    public void advance() {
+        this.day++;
+        if(this.day == 31) {
+            this.day = 1;
+            this.month++;
+        } 
+        if(this.month == 13) {
+            this.month = 1;
+            this.year++;
+        }
+    }
+
+    // Advances date by number of days passed in as parameter
+    public void advance(int howManyDays) {
+        this.day = this.day + howManyDays;
+        while(true) {
+            if(this.day < 30) {
+                break;
+            }
+            this.day = this.day - 30;
+            this.month++;
+            if(this.month > 12) {
+                this.year++;
+                this.month = 1;
+            }
+        }
+    }
+
+    // Creates new date that has x days more than original date
+    public SimpleDate afterNumberOfDays(int days) {
+        SimpleDate newDate = new SimpleDate(this.day, this.month, this.year);
+        newDate.advance(days);
+        return newDate;
+    }
+}
