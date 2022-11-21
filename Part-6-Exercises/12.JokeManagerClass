@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class JokeManager {
+    
+    private ArrayList<String> jokes;
+
+    // Constructor
+    public JokeManager() {
+        jokes = new ArrayList<>();
+    }
+
+    // Adds a joke to list of jokes
+    public void addJoke(String joke) {
+        jokes.add(joke);
+    }
+
+    // Picks and returns a random joke from list
+    public String drawJoke() {
+        Random rand = new Random();
+        if(jokes.size() == 0) {
+            return "Jokes are in short supply.";
+        } else {
+            int random = rand.nextInt(jokes.size());
+            return String.valueOf(jokes.get(random));
+        }
+    }
+
+    // Prints all jokes in list
+    public void printJokes() {
+        for (String joke : jokes) {
+            System.out.println(joke);
+        }
+    }
+}

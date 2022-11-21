@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Program {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        GradeRegister register = new GradeRegister();
+        UserInterface ui = new UserInterface(register, scanner);
+
+        // Tests for Part 1
+        register.addGradeBasedOnPoints(93);
+        register.addGradeBasedOnPoints(91);
+        register.addGradeBasedOnPoints(92);
+        register.addGradeBasedOnPoints(88);
+        System.out.println(register.averageOfGrades());
+        System.out.println();
+
+        // Test for Part 2
+        System.out.println(register.averageOfPoints());
+        System.out.println();
+
+        // Test for Part 3
+        ui.start();
+    }
+}
