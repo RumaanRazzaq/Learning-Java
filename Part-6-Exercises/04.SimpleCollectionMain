@@ -1,0 +1,19 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Try out your class here
+        SimpleCollection j = new SimpleCollection("characters");
+        j.add("magneto");
+        System.out.println(j.longest());        
+        System.out.println();
+        j.add("mystique");
+        System.out.println(j.longest());
+        System.out.println(j.getElements());
+
+        SimpleCollection c = new SimpleCollection("test");
+        System.out.println(c);
+        c.add("first");
+        System.out.println(c);
+    }
+}

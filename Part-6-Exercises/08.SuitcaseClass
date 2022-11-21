@@ -1,0 +1,71 @@
+import java.util.ArrayList;
+
+public class Suitcase {
+    
+    private int maxWeight;
+    private ArrayList<Item> suitcaseItems;
+
+    // Constructor
+    public Suitcase(int maxWeight) {
+        this.maxWeight = maxWeight;
+        suitcaseItems = new ArrayList<>();
+    }
+
+    // Attempts to add item to suitcase if maxWeight is not exceeded
+    public void addItem(Item item) {
+        int totalWeight = 0;
+        for (Item item2 : suitcaseItems) {
+            totalWeight += item2.getWeight();
+        }
+        if(totalWeight + item.getWeight() <= this.maxWeight) {
+            this.suitcaseItems.add(item);
+        }
+    }
+
+    // Prints all items in suitcase
+    public void printItems() {
+        for (Item item3 : suitcaseItems) {
+            System.out.println(item3);
+        }
+    }
+
+    // Calculates and returns total weight of suitcase
+    public int totalWeight() {
+        int totalWeight = 0;
+        for (Item item : suitcaseItems) {
+            totalWeight += item.getWeight();
+        }
+        return totalWeight;
+    }
+
+    // Calculates and returns heaviest item in suitcase, returns null if no item in suitcase
+    public Item heaviestItem() {
+        if(suitcaseItems.size() == 0) {
+            return null;
+        }
+        int heaviest = 0;
+        int heaviestIndex = 0;
+        for(int i = 0; i < suitcaseItems.size(); i++) {
+            if(suitcaseItems.get(i).getWeight() > heaviest) {
+                heaviest = suitcaseItems.get(i).getWeight();
+                heaviestIndex = i;
+            }
+        }
+        return suitcaseItems.get(heaviestIndex);
+    }
+
+    // Prints number of items in suitcase and weight in specific order
+    public String toString() {
+        int totalWeight = 0;
+        for (Item item : suitcaseItems) {
+            totalWeight += item.getWeight();
+        }
+        if(suitcaseItems.size() == 0) {
+            return "no items (" + totalWeight + " kg)";
+        } else if(suitcaseItems.size() == 1) {
+            return suitcaseItems.size() + " item (" + totalWeight + " kg)";
+        } else {
+            return suitcaseItems.size() + " items (" + totalWeight + " kg)";
+        }
+    }
+}

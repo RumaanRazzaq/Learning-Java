@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+
+public class Room {
+    
+    private ArrayList<Person> people;
+
+    public Room() {
+        people = new ArrayList<>();
+    }
+
+    public void add(Person person) {
+        this.people.add(person);
+    }
+
+    public boolean isEmpty() {
+        if(this.people.size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public ArrayList<Person> getPersons() {
+        return this.people;
+    }
+
+    public Person shortest() {
+        if(people.size() == 0) {
+            return null;
+        }
+        int shortest = 200;
+        int shortestIndex = 0;
+        for (int i = 0; i < this.people.size(); i++) {
+            if(people.get(i).getHeight() < shortest) {
+                shortest = people.get(i).getHeight();
+                shortestIndex = i;
+            }
+        }
+        return people.get(shortestIndex);
+    }
+
+    public Person take() {
+        if(people.size() == 0) {
+            return null;
+        }
+        Person shortest = this.shortest();
+        int shortestIndex = 0;
+        for (int i = 0; i < this.people.size(); i++) {
+            if(people.get(i) == shortest) {
+                shortestIndex = i;
+            }
+        }
+        this.people.remove(shortestIndex);
+        return shortest;
+    }
+}

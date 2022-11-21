@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+
+public class Hold {
+    
+    private ArrayList<Suitcase> hold;
+    private int maxWeight;
+
+    // Constructor
+    public Hold(int maxWeight) {
+        this.maxWeight = maxWeight;
+        hold = new ArrayList<>();
+    }
+
+    // Attempts to add suitcase to hold if maxWeight is not exceeded
+    public void addSuitcase(Suitcase suitcase) {
+        int totalWeight = 0;
+        for (Suitcase suitcase2 : hold) {
+            totalWeight += suitcase.totalWeight();
+        }
+        if(totalWeight + suitcase.totalWeight() <= this.maxWeight) {
+            this.hold.add(suitcase);
+        }
+    }
+
+    // Prints all items in the hold
+    public void printItems() {
+        for(int i = 0; i < hold.size(); i++) {
+            hold.get(i).printItems();
+        }
+    }
+
+    // Prints the quantity and total weight of suitcases
+    public String toString() {
+        int totalWeight = 0;
+        for (Suitcase suitcase : hold) {
+            totalWeight += suitcase.totalWeight();
+        }
+        return hold.size() + " suitcases (" + totalWeight +" kg)";
+    }
+}
