@@ -1,0 +1,32 @@
+public class Bird {
+    
+    private String name;
+    private String latinName;
+    private int Observation;
+
+    public Bird(String name, String latinNane) {
+        this.name = name;
+        this.latinName = latinNane;
+        this.Observation = 0;
+    }
+
+    public void addObservation() {
+        this.Observation++;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getLatinName() {
+        return this.latinName;
+    }
+
+    public int getObservation() {
+        return this.Observation;
+    }
+
+    public String toString() {
+        return name + " (" + latinName + ")" + ": " + Observation + " observations";
+    }
+}
