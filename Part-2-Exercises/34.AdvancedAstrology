@@ -1,15 +1,17 @@
+
 public class AdvancedAstrology {
 
     public static void printStars(int number) {
         // part 1 of the exercise
-        for (int i = 0; i < number; i++) {
+        for (int i = 1; i <= number; i++) {
             System.out.print("*");
         }
+        System.out.println();
     }
 
     public static void printSpaces(int number) {
         // part 1 of the exercise
-        for (int i = 0; i < number; i++) {
+        for (int i = 1; i <= number; i++) {
             System.out.print(" ");
         }
     }
@@ -19,7 +21,6 @@ public class AdvancedAstrology {
         for (int i = 1; i <= size; i++) {
             printSpaces(size - i);
             printStars(i);
-            System.out.println("");
         }
     }
 
@@ -31,16 +32,11 @@ public class AdvancedAstrology {
             stars = (i * 2) - 1;
             printSpaces((bottomLayer - stars) / 2);
             printStars(stars);
-            printSpaces((bottomLayer - stars) / 2);
-            System.out.println("");
         }
         printSpaces((bottomLayer - 3) / 2);
         printStars(3);
         printSpaces((bottomLayer - 3) / 2);
-        System.out.println("");
-        printSpaces((bottomLayer - 3) / 2);
         printStars(3);
-        System.out.println("");
     }
 
     public static void main(String[] args) {
