@@ -1,9 +1,11 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class IndexOfSmallest {
 
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
 
         // Creates new list and adds items to list
@@ -16,15 +18,13 @@ public class IndexOfSmallest {
 
             list.add(input);
         }
-        System.out.println("");
 
-        // Searches for users number and prints if found
-        int smallest = Integer.valueOf(scanner.nextLine());
+        // Asks user for a number to search for
+        System.out.println("");
+        int smallest = 9999999;
         int smallestIndex = 0;
-        for(int i = 0; i < list.size(); i++)
-        {
-            if(list.get(i) < smallest)
-            {
+        for(int i = 0; i < list.size(); i++) {
+            if(list.get(i) < smallest) {
                 smallest = list.get(i);
                 smallestIndex = i;
             }
