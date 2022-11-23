@@ -11,9 +11,5 @@ public class Main {
         // Test for Part 1
         TextUI ui = new TextUI(scanner, dictionary);
         ui.start();
-
-        // Test for Part 2
-        System.out.println(dictionary.translate("pike"));
-
     }
 }
