@@ -1,0 +1,39 @@
+public class Container {
+    
+    private int litres;
+
+    // Constructor
+    public Container() {
+        this.litres = 0;
+    }
+
+    // Returns litres in containers as integer
+    public int contains() {
+        return this.litres;
+    }
+
+    // Adds amount into container if conditions met
+    public void add(int amount) {
+        if(amount >= 0) {
+            if(this.litres + amount >= 100) {
+                this.litres = 100;
+            } else {
+                this.litres += amount;
+            }
+        }
+    }
+
+    // Removes amount from container if conditions met
+    public void remove(int amount) {
+        if(this.litres - amount < 0) {
+            this.litres = 0;
+        } else {
+            this.litres -= amount;
+        }
+    }
+
+    // Returns litres in container as string
+    public String toString() {
+        return litres + "/100";
+    }
+}

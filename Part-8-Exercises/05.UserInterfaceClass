@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class UserInterface {
+
+    private Scanner scanner;
+    private TodoList toDoList;
+
+    public UserInterface(TodoList list, Scanner scanner) {
+        this.scanner = scanner;
+        this.toDoList = list;
+    }
+
+    public void start() {
+        while(true) {
+            System.out.println("Command: ");
+            String command = scanner.nextLine();
+            if(command.equals("stop")) {
+                break;
+            }
+            if(command.equals("add")) {
+                System.out.println("To add: ");
+                String toAdd = scanner.nextLine();
+                toDoList.add(toAdd);
+            }
+            if(command.equals("list")) {
+                toDoList.print();
+            }
+            if(command.equals("remove")) {
+                System.out.println("Which one if removed?");
+                int number = Integer.valueOf(scanner.nextLine());
+                toDoList.remove(number);
+            }
+        }
+    }
+}
