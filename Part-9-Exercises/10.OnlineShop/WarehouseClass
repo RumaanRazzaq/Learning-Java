@@ -1,0 +1,54 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class Warehouse {
+    
+    private Map<String, Integer> productPrice;
+    private Map<String, Integer> productStock;
+
+    // Constructor for Warehouse Class
+    public Warehouse() {
+        productPrice = new HashMap<>();
+        productStock = new HashMap<>();
+    }
+
+    // Adds a product to the hashmaps
+    public void addProduct(String product, int price, int stock) {
+        productPrice.put(product, price);
+        productStock.put(product, stock);
+    }
+
+    // Gets price of product passed as parameter
+    public int price(String product) {
+        if(productPrice.containsKey(product) == true) {
+            return productPrice.get(product);
+        }
+        return -99;
+    }
+
+    // Gets quantity of stock of product passed as parameter
+    public int stock(String product) {
+        if(productStock.containsKey(product) == true) {
+            return productStock.get(product);
+        }
+        return 0;
+    }
+
+    // Reduces stock remaining by 1 and returns true if there was stock remaining, stock cannot go below 0
+    public boolean take(String product) {
+        if(productStock.containsKey(product) == true) {
+            if(productStock.get(product) > 0) {
+                int oldStock = productStock.get(product);
+                productStock.replace(product, oldStock, oldStock - 1);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Returns names of products in warehouse
+    public Set<String> products() {
+        return productPrice.keySet();
+    }
+}

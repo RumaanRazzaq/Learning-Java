@@ -1,0 +1,22 @@
+public class Cat extends Animal implements NoiseCapable {
+    
+    // Constructor for Cat class that takes a parameter
+    public Cat(String name) {
+        super(name);
+    }
+    
+    // Constructor for Cat class that takes no parameter
+    public Cat() {
+        super("Cat");
+    }
+    
+    // Prints string saying cat purred
+    public void purr() {
+        System.out.println(this.getName() + " purrs");
+    }
+
+    @Override
+    public void makeNoise() {
+        this.purr();
+    }
+}

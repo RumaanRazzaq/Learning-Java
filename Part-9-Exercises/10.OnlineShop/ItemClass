@@ -1,0 +1,28 @@
+public class Item {
+
+    private String productName;
+    private int productQuantity;
+    private int productPrice;
+
+    // Constructor for the Item class
+    public Item(String product, int qty, int unitPrice) {
+        this.productName = product;
+        this.productQuantity = qty;
+        this.productPrice = unitPrice;
+    }
+
+    // Returns the price of the item
+    public int price() {
+        return this.productPrice * this.productQuantity;
+    }
+
+    // Increases quantity of items by 1
+    public void increaseQuantity() {
+        this.productQuantity++;
+    }
+
+    // Formats toString in a way we require
+    public String toString() {
+        return this.productName + ": " + this.productQuantity;
+    }
+}

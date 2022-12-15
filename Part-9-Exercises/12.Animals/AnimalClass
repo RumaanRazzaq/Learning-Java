@@ -1,0 +1,24 @@
+public abstract class Animal {
+    
+    private String animalName;
+
+    // Constructor for animal class
+    public Animal(String name) {
+        this.animalName = name;
+    }
+
+    // Prints string saying animal ate
+    public void eat() {
+        System.out.println(this.animalName + " eats");
+    }
+
+    // Prints string saying animal slept
+    public void sleep() {
+        System.out.println(this.animalName + " sleeps");
+    }
+
+    // Returns name of animal
+    public String getName() {
+        return this.animalName;
+    }
+}
