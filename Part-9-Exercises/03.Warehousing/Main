@@ -1,0 +1,49 @@
+public class Main {
+
+    public static void main(String[] args) {
+        // Part 1 Tests
+        ProductWarehouse juice = new ProductWarehouse("Juice", 1000.0);
+        juice.addToWarehouse(1000.0);
+        juice.takeFromWarehouse(11.3);
+        System.out.println(juice.getName());
+        System.out.println(juice);
+        System.out.println();
+
+        // Part 2 Tests
+        juice.addToWarehouse(1.0);
+        System.out.println(juice);
+        System.out.println();
+
+        // Part 3 Tests
+        ChangeHistory changeHistory = new ChangeHistory();
+        changeHistory.add(1.0);
+        changeHistory.clear();
+        System.out.println(changeHistory);
+        changeHistory.add(6.2);
+        changeHistory.add(1.4);
+        changeHistory.add(11.0);
+        System.out.println(changeHistory);
+        System.out.println();
+
+        // Part 4 Tests
+        System.out.println("Max: " + changeHistory.maxValue());
+        System.out.println("Min: " + changeHistory.minValue());
+        System.out.println("Average: " + changeHistory.average());
+        System.out.println();
+
+        // Part 5 and 6 Tests
+        ProductWarehouseWithHistory juice2 = new ProductWarehouseWithHistory("Juice", 1000.0, 1000.0);
+        juice2.takeFromWarehouse(11.3);
+        System.out.println(juice2.getName());
+        juice2.addToWarehouse(1.0);
+        System.out.println(juice2); 
+        System.out.println(juice2.history()); 
+        System.out.println();
+
+        // Part 7 Tests
+        ProductWarehouseWithHistory pwh = new ProductWarehouseWithHistory("coffee", 10, 2);
+        pwh.addToWarehouse(4);
+        pwh.takeFromWarehouse(2);
+        pwh.printAnalysis();
+    }
+}

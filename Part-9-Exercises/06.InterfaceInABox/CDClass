@@ -1,0 +1,25 @@
+public class CD implements Packable {
+
+    private String CDArtist;
+    private String CDName;
+    private int publicationYear;
+
+    // Constructor for CD class
+    public CD(String artist, String name, int year) {
+        this.CDArtist = artist;
+        this.CDName = name;
+        this.publicationYear = year;
+        this.CDWeight = 0.1;
+    }
+
+    // Returns weight of CD, which is always 0.1
+    @Override
+    public double weight() {
+        return 0.1;
+    }
+
+    // Formats output in a way we want
+    public String toString() {
+        return this.CDArtist + ": " + this.CDName + " (" + this.publicationYear + ")";
+    }
+}

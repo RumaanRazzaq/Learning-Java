@@ -1,0 +1,43 @@
+import java.util.ArrayList;
+
+public class Box implements Packable {
+    
+    private double maxCapacity;
+    private ArrayList<Packable> items;
+
+    // Constructor for Box class
+    public Box(double capacity) {
+        this.maxCapacity = capacity;
+        this.items = new ArrayList<>();
+    }
+
+    // Calculates the current weight of the box
+    public double weight() {
+        double weight = 0;
+        for(Packable item: items){
+            weight += item.weight();
+        }
+        return weight;
+    }
+
+    // Returns total number of items within the box
+    public int items() {
+        int count = items.size();
+        return count;
+    }
+
+    // Adds a item to the box
+    public void add(Packable item) {
+        double weight = weight();
+        if(weight + item.weight() <= maxCapacity) {
+            items.add(item);
+        }
+    }
+
+    // Formats output in a way we want
+    public String toString() {
+        int count = items();
+        double totalWeight = weight();
+        return "Box: " + count + " items, total weight " + totalWeight + " kg";
+    }
+}

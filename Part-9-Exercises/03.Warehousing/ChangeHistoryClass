@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+
+public class ChangeHistory {
+
+    private ArrayList<Double> history;
+
+    public ChangeHistory()
+    {
+        history = new ArrayList<>();
+    }
+
+    public void add(double status)
+    {
+        history.add(status);
+    }
+
+    public void clear() 
+    {
+        history.clear();
+    }
+
+    public double maxValue()
+    {
+        double maxValue = 0;
+        for(int i = 0; i < this.history.size(); i++)
+        {
+            if(maxValue < this.history.get(i))
+            {
+                maxValue = this.history.get(i);
+            }
+        }
+        return maxValue;
+    }
+
+    public double minValue()
+    {
+        double minValue = 100000000;
+        for(int i = 0; i < this.history.size(); i++)
+        {
+            if(minValue > this.history.get(i))
+            {
+                minValue = this.history.get(i);
+            }
+        }
+        return minValue;
+    }
+
+    public double average()
+    {
+        double sum = 0;
+        for(int i = 0; i < this.history.size(); i++)
+        {
+            sum += this.history.get(i);
+        }
+        return sum / this.history.size();
+    }
+
+    public String toString() 
+    {
+        return String.valueOf(this.history);
+    }
+}

@@ -1,0 +1,18 @@
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Part 1 Tests
+        A a = new A();
+        B b = new B();
+        C c = new C();
+        a.a();
+        b.b();
+        c.c();
+        
+        // Part 2 Tests
+        c.a();
+        c.b();
+        c.c();
+    }
+}

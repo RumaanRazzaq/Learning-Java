@@ -1,0 +1,19 @@
+public class Main {
+
+    public static void main(String[] args) {
+        // Part 1 Tests
+        TripleTacoBox tripleTacoBox = new TripleTacoBox();
+        System.out.println("Tacos Left: " + tripleTacoBox.tacosRemaining());
+        tripleTacoBox.eat();
+        tripleTacoBox.eat();
+        System.out.println("Tacos Left: " + tripleTacoBox.tacosRemaining());
+        System.out.println();
+
+        // Part 2 Tests
+        CustomTacoBox customTacoBox = new CustomTacoBox(1);
+        System.out.println("Tacos Left: " + customTacoBox.tacosRemaining());
+        customTacoBox.eat();
+        customTacoBox.eat();
+        System.out.println("Tacos Left: " + customTacoBox.tacosRemaining());
+    }
+}
