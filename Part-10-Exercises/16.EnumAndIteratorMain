@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainProgram {
+
+    public static void main(String[] args) {
+        // Part 1 and 2 Tests
+        Person anna = new Person("Anna", Education.PHD);
+        System.out.println(anna);
+        System.out.println();
+
+        // Part 3 Tests
+        List<Person> peopleToAdd = new ArrayList<>();
+        Person messi = new Person("Messi", Education.PHD);
+        Person salah = new Person("Salah", Education.MA);
+        Person rumaan = new Person("Rumaan", Education.BA);
+        peopleToAdd.add(anna);
+        peopleToAdd.add(messi);
+        peopleToAdd.add(salah);
+
+        Employees employees = new Employees();
+        employees.add(peopleToAdd);
+        employees.add(rumaan);
+        employees.print();
+        System.out.println();
+        employees.print(Education.PHD);
+        System.out.println();
+
+        // Part 4 Tests
+        employees.fire(Education.PHD);
+        employees.print();
+        System.out.println();
+        employees.fire(Education.BA);
+        employees.print(); 
+        System.out.println();
+    }
+}

@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class MainProgram {
+
+    public static void main(String[] args) {
+        // Part 1 Tests
+        Scanner scanner = new Scanner(System.in);
+        Checker checker = new Checker();
+        System.out.println("Enter a string: ");
+        String day = scanner.nextLine();
+        if(checker.isDayOfWeek(day) == true) {
+            System.out.println("The form is correct.");
+        } else {
+            System.out.println("The form is incorrect.");
+        }
+        System.out.println();
+
+        // Part 2 Tests
+        System.out.println("Enter a string: ");
+        String vowels = scanner.nextLine(); 
+        if(checker.allVowels(vowels) == true) {
+            System.out.println("The form is correct.");
+        } else {
+            System.out.println("The form is incorrect.");
+        }
+        System.out.println();
+
+        // Part 3 Tests
+        System.out.println("Enter a string: ");
+        String date = scanner.nextLine(); 
+        if(checker.timeOfDay(date) == true) {
+            System.out.println("The form is correct.");
+        } else {
+            System.out.println("The form is incorrect.");
+        }
+        System.out.println();
+    }
+}

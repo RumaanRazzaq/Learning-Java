@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Hand implements Comparable<Hand>{
+    
+    private ArrayList<Card> hand;
+
+    public Hand() {
+        hand = new ArrayList<>();
+    }
+
+    public void add(Card card) {
+        hand.add(card);
+    }
+
+    public void print() {
+        for (Card card : hand) {
+            System.out.println(card);
+        }
+    }
+
+    public void sort() {
+        Collections.sort(this.hand);
+    }
+
+    public void sortBySuit() {
+        Collections.sort(this.hand, new BySuitInValueOrder());
+    }
+
+    @Override
+    public int compareTo(Hand o) {
+        int hand1Sum = 0;
+        int hand2Sum = 0;
+        for (Card card : hand) {
+            hand1Sum += card.getValue();
+        }
+        for (Card card : o.hand) {
+            hand2Sum += card.getValue();
+        }
+        return hand1Sum - hand2Sum;
+    }
+}

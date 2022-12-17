@@ -1,0 +1,26 @@
+public class Main {
+
+    public static void main(String[] args) {
+        // Tests for Suitcase Class methods totalWeight and printItems
+        Suitcase mySuitcase = new Suitcase(10);
+        Item laptop = new Item("Laptop", 2);
+        Item clothes = new Item("Clothes", 5);
+        mySuitcase.addItem(laptop);
+        mySuitcase.addItem(clothes);
+        System.out.println(mySuitcase.totalWeight());
+        mySuitcase.printItems();
+        System.out.println();
+
+        // Tests for Hold Class methods totalWeight and printItems
+        Suitcase mySuitcase2 = new Suitcase(5);
+        Item phone = new Item("Phone", 1);
+        Item ipad = new Item("iPad", 2);
+        mySuitcase2.addItem(phone);
+        mySuitcase2.addItem(ipad);
+        Hold airportHold = new Hold(50);
+        airportHold.addSuitcase(mySuitcase2);
+        airportHold.addSuitcase(mySuitcase);
+        System.out.println(airportHold.totalWeight());
+        airportHold.printItems();
+    }
+}

@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class PositiveNumbers {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> numbers = new ArrayList<>();
+
+        System.out.println("Input numbers, type 'end' to stop.");
+        while (true) {
+            String row = scanner.nextLine();
+            if(row.equals("end")) {
+                break;
+            }
+            numbers.add(Integer.valueOf(row));
+        }
+
+        System.out.println(positive(numbers));
+
+    }
+
+    public static List<Integer> positive(List<Integer> numbers) {
+        List<Integer> positveNumbers = numbers.stream()
+            .filter(i -> i > 0)
+            .collect(Collectors.toCollection(ArrayList::new));
+        return positveNumbers;
+    }
+}

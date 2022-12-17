@@ -1,0 +1,26 @@
+public class Book implements Comparable<Book> {
+    
+    private String bookName;
+    private int ageRecommendation;
+
+    public Book(String name, int age) {
+        this.bookName = name;
+        this.ageRecommendation = age;
+    }
+
+    public String getName() {
+        return this.bookName;
+    }
+
+    public int getAge() {
+        return this.ageRecommendation;
+    }
+
+    public String toString() {
+        return this.bookName + " (recommended for " + this.ageRecommendation + " year-olds or older)";
+    }
+
+    public int compareTo(Book book2) {
+        return this.ageRecommendation - book2.getAge();
+    }
+}

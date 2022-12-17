@@ -1,0 +1,83 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Part 1 Tests
+        Card first = new Card(2, Suit.DIAMOND);
+        Card second = new Card(14, Suit.SPADE);
+        Card third = new Card(12, Suit.HEART);
+        System.out.println(first);
+        System.out.println(second);
+        System.out.println(third);
+        System.out.println();
+        System.out.println(first.compareTo(second));
+        System.out.println(second.compareTo(third));
+        System.out.println(third.compareTo(second));
+        System.out.println();
+
+        // Part 2 Tests
+        Hand hand = new Hand();
+        hand.add(first);
+        hand.add(second);
+        hand.add(third);
+        hand.print();
+        System.out.println();
+
+        // Part 3 Test
+        hand.sort();
+        hand.print();
+        System.out.println();
+
+        // Part 4 Tests
+        Hand hand1 = new Hand();
+        hand1.add(new Card(2, Suit.DIAMOND));
+        hand1.add(new Card(14, Suit.SPADE));
+        hand1.add(new Card(12, Suit.HEART));
+        hand1.add(new Card(2, Suit.SPADE));
+
+        Hand hand2 = new Hand();
+        hand2.add(new Card(11, Suit.DIAMOND));
+        hand2.add(new Card(11, Suit.SPADE));
+        hand2.add(new Card(11, Suit.HEART));
+
+        int comparison = hand1.compareTo(hand2);
+        if (comparison < 0) {
+            System.out.println("better hand is");
+            hand2.print();
+        } else if (comparison > 0){
+            System.out.println("better hand is");
+            hand1.print();
+        } else {
+            System.out.println("hands are equal");
+        }
+        System.out.println();
+
+        // Part 5 Tests
+        ArrayList<Card> cards = new ArrayList<>();
+        cards.add(new Card(3, Suit.SPADE));
+        cards.add(new Card(2, Suit.DIAMOND));
+        cards.add(new Card(14, Suit.SPADE));
+        cards.add(new Card(12, Suit.HEART));
+        cards.add(new Card(2, Suit.SPADE));
+
+        BySuitInValueOrder sortBySuitSorter = new BySuitInValueOrder();
+        Collections.sort(cards, sortBySuitSorter);
+        cards.stream().forEach(c -> System.out.println(c));
+        System.out.println();
+
+        // Part 6 Tests
+        Hand hand3 = new Hand();
+        hand3.add( new Card(12,Suit.HEART) ); 
+        hand3.add( new Card(14,Suit.DIAMOND) ); 
+        hand3.add( new Card(2,Suit.SPADE) ); 
+        hand3.add( new Card(2,Suit.CLUB) ); 
+        hand3.sort();
+        hand3.print();
+
+        Card first1 = new Card(10, Suit.HEART);
+        Card second1 = new Card(10, Suit.SPADE);
+        System.out.println(first1.compareTo(second1));
+    }
+}
