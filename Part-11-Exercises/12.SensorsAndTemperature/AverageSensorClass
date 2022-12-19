@@ -1,0 +1,57 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AverageSensor implements Sensor {
+
+    private List<Sensor> sensors = new ArrayList<>();
+    private List<Integer> readings = new ArrayList<>();
+    
+    @Override
+    public boolean isOn() {
+        for (Sensor sensor : sensors) {
+            if(sensor.isOn() == false) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void setOn() {
+        for (Sensor sensor : sensors) {
+            sensor.setOn();
+        }
+    }
+
+    @Override
+    public void setOff() {
+        for (Sensor sensor : sensors) {
+            sensor.setOff();
+        }
+    }
+
+    @Override
+    public int read() {
+        int sum = 0;
+        int count = 0;
+        for (Sensor sensor : sensors) {
+            sum += sensor.read();
+            count++;
+        }
+        if(count == 0 || this.isOn() == false) {
+            throw new IllegalStateException("State is off or no sensors found");
+        }
+        readings.add(sum / count);
+        return sum / count;
+    }
+
+    public void addSensor(Sensor toAdd) {
+        this.sensors.add(toAdd);
+    }
+
+    public List<Integer> readings() {
+        return readings;
+    }
+}

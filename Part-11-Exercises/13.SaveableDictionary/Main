@@ -1,0 +1,42 @@
+package dictionary;
+
+public class Main {
+    public static void main(String[] args) {
+        // Part 1 Tests
+        SaveableDictionary dictionary = new SaveableDictionary("Example");
+        dictionary.add("apina", "monkey");
+        dictionary.add("banaani", "banana");
+        dictionary.add("apina", "apfe");
+        System.out.println(dictionary.translate("apina"));
+        System.out.println(dictionary.translate("monkey"));
+        System.out.println(dictionary.translate("ohjelmointi"));
+        System.out.println(dictionary.translate("banana"));
+        System.out.println();
+
+        // Part 2 Tests
+        dictionary.delete("apina");
+        dictionary.delete("banana");
+        dictionary.add("ohjelmointi", "programming");
+        System.out.println(dictionary.translate("apina"));
+        System.out.println(dictionary.translate("monkey"));
+        System.out.println(dictionary.translate("banana"));
+        System.out.println(dictionary.translate("banaani"));
+        System.out.println(dictionary.translate("ohjelmointi"));
+        System.out.println();
+
+        // Part 3 Tests
+        SaveableDictionary dictionary2 = new SaveableDictionary("words.txt");
+        boolean wasSuccessful = dictionary2.load();
+        if (wasSuccessful) {
+            System.out.println("Successfully loaded the dictionary from file");
+        }
+        System.out.println(dictionary2.translate("apina"));
+        System.out.println(dictionary2.translate("ohjelmointi"));
+        System.out.println(dictionary2.translate("alla oleva"));
+
+        // Part 4 Tests
+        SaveableDictionary dictionary3 = new SaveableDictionary("words.txt");    
+        dictionary3.load();
+        dictionary3.save();
+    }
+}

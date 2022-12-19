@@ -1,0 +1,41 @@
+package application;
+
+public class Program {
+
+    public static void main(String[] args) {
+        // Part 1 Tests
+        StandardSensor ten = new StandardSensor(10);
+        StandardSensor minusFive = new StandardSensor(-5);
+        System.out.println(ten.read());
+        System.out.println(minusFive.read());
+        System.out.println(ten.isOn());
+        ten.setOff();
+        System.out.println(ten.isOn());
+        System.out.println();
+        
+        // Part 2 Tests
+        TemperatureSensor tempSensor = new TemperatureSensor();
+        tempSensor.setOn();
+        System.out.println(tempSensor.read());
+        System.out.println(tempSensor.read());
+        System.out.println(tempSensor.read());
+        tempSensor.setOff();
+        //System.out.println(tempSensor.read());
+        System.out.println();
+
+        // Part 3 Tests
+        AverageSensor avgSensor = new AverageSensor();
+        avgSensor.addSensor(ten);
+        avgSensor.addSensor(minusFive);
+        avgSensor.addSensor(tempSensor);
+        avgSensor.setOn();
+        System.out.println(avgSensor.read());
+        avgSensor.setOff();
+        System.out.println(avgSensor.isOn());
+        System.out.println();
+
+        // Part 4 Tests
+        avgSensor.setOn();
+        System.out.println("readings: " + avgSensor.readings());
+    }
+}

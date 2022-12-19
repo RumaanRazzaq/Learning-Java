@@ -1,0 +1,34 @@
+package application;
+import java.util.Random;
+
+public class TemperatureSensor implements Sensor {
+
+    private boolean onOrOff;
+
+    public TemperatureSensor() {
+        this.onOrOff = false;
+    }
+
+    @Override
+    public boolean isOn() {
+        return onOrOff;
+    }
+
+    @Override
+    public void setOn() {
+        this.onOrOff = true;
+    }
+
+    @Override
+    public void setOff() {
+        this.onOrOff = false;
+    }
+
+    @Override
+    public int read() {
+        if(this.onOrOff == true) {
+            return new Random().nextInt(61) - 30;
+        }   
+        throw new IllegalStateException("State of sensor is off");
+    }    
+}

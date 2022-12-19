@@ -1,0 +1,75 @@
+package dictionary;
+
+import java.io.File;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class SaveableDictionary {
+
+    private HashMap<String, String> dictionary;
+    private String fileName;
+
+    public SaveableDictionary() {
+        dictionary = new HashMap<>();
+    }
+
+    public SaveableDictionary(String file) {
+        this();
+        this.fileName = file;
+    }
+
+    public boolean load() {
+        try {
+            Files.lines(Paths.get(this.fileName))
+                    .map(l -> l.split(":"))
+                    .forEach(parts -> {
+                        this.dictionary.put(parts[0], parts[1]);
+                        this.dictionary.put(parts[1], parts[0]);
+                    });
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean save() {
+        try {
+            PrintWriter writer = new PrintWriter(new File(this.fileName));
+            List<String> allreadySaved = new ArrayList<>();
+            dictionary.keySet().stream().forEach(word -> {
+                if (allreadySaved.contains(word)) {
+                    return;
+                }
+                String pari = word + ":" + dictionary.get(word);
+                writer.println(pari);
+                allreadySaved.add(word);
+                allreadySaved.add(dictionary.get(word));
+            });
+            writer.close();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void add(String words, String translation) {
+        if(!dictionary.containsKey(words)) {
+            dictionary.put(words, translation);
+            dictionary.put(translation, words);
+        }
+    }
+
+    public String translate(String word) {
+        return dictionary.get(word);
+    }
+
+    public void delete(String word) {
+        String translation = dictionary.get(word);
+        dictionary.remove(word, translation);
+        dictionary.remove(translation, word);
+    }
+}
