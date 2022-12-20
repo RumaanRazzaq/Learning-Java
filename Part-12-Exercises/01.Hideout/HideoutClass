@@ -1,0 +1,21 @@
+public class Hideout<T> {
+    
+    private T element = null;
+
+    public void putIntoHideout(T toHide) {
+        this.element = toHide;
+    }
+
+    public T takeFromHideout() {
+        T elementToTake = this.element;
+        this.element = null;
+        return elementToTake;
+    }
+
+    public boolean isInHideout() {
+        if(this.element == null) {
+            return false;
+        }
+        return true;
+    }
+}

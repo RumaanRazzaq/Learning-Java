@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+
+public class Pipe<T> {
+    
+    private ArrayList<T> elements;
+
+    public Pipe() {
+        this.elements = new ArrayList<>();
+    }
+
+    public void putIntoPipe(T value) {
+        this.elements.add(value);
+    }
+
+    public T takeFromPipe() {
+        if(this.elements.get(0).equals(null)) {
+            return null;
+        }
+        T element = this.elements.get(0);
+        this.elements.remove(0);
+        return element;
+    }
+
+    public boolean isInPipe() {
+        if(this.elements.size() > 0) {
+            return true;
+        }
+        return false;
+    }
+}
