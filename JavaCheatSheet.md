@@ -202,9 +202,12 @@ The **.getOrDefault(key, 0)** method of the HashMap searches for the key passed 
 
 For a hashmap we need to define: the equals method so that all equal or approximately equal objects cause the comparison to return true and all false for all the rest and the hashCode method so that as few objects as possible end up with the same hash value.  
 The hashCode method can also be used for approximate comparison of objects. It can be implemented as follows:
-**public int hashCode() {**
-....**if (this.name == null) {**
-........**return this.published;**
-....**}**
-....**return this.name.hashCode();**
-**}**
+**public int hashCode() {**  
+....**if (this.name == null) {**  
+........**return this.published;**  
+....**}**  
+....**return this.name.hashCode();**  
+**}**  
+<br/> <br/> <br/>
+
+# **Part 9 Summary**
