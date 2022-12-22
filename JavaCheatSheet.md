@@ -211,3 +211,27 @@ The hashCode method can also be used for approximate comparison of objects. It c
 <br/> <br/> <br/>
 
 # **Part 9 Summary**
+We use the keyword extends to inherit properties of a class. The class that recieves the properties is called a subclass, and the class whose properties are inherited is called the superclass. For example: **public class Engine extends Part** means the engine class inherits from the part class. If an object owns or is composed of other objects, inheritance should not be used.  
+In the constructor of a subclass we can call the method **super();** which calls the constructor in the superclass. You can call the methods defined in the superclass by prefixing the call with super. For example: **super.toString();**  
+
+If a method or variable has the access modifier **private**, it is visible only to the internal methods of that class. Subclasses will not see it and has no direct means to access it. A subclass sees everything that is defined with the **public** modifier in the superclass. If we want to define some variables or methods that are visible to the subclasses but invisible to everything else, we can use the access modifier **protected** to achieve this.  
+
+An abstract class combines interfaces and inheritance. You cannot create an instance of them. You can define abstract methods but implementing them is the responsibility of the subclasses. 
+
+We can use interfaces to define behaviour required from a class. They are defined like: **public interface interfaceName**. They define methods by their names and return types, but do not explain what the method does. In order to do something with the method we override it in the subclass. The subclass **MUST** contain an implementation of any methods in the interface.  
+For example in the interface: **public String read();**   
+Then in the subclass we could have: 
+
+**@Override**  
+**public String read() {**  
+....**return "Hello";**  
+**}**  
+
+Java has 4 commonly used interfaces which are list, map, set and collection.  
+The list interface defines the basic functionality related to lists. One example is a linked list which constructs a list where each element contains a reference to the next element in the list. When one searches for an object by index in a linked list, one has to go though the list from the beginning until the index.  
+The map interface defines the basic behavior associated with hash tables.  
+The set interface describes functionality related to sets. In Java, sets always contain either 0 or 1 amounts of any given object.  
+The Collection interface describes functionality related to collections. Lists and sets are categorized as collections in Java — both the List and Set interfaces implement the Collection interface. The Collection interface provides methods for checking the existence of an item (the method contains) and determining the size of a collection (the method size).
+<br/> <br/> <br/>
+
+# **Part 10 Summary**
