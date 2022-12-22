@@ -207,7 +207,7 @@ The hashCode method can also be used for approximate comparison of objects. It c
 ........**return this.published;**  
 ....**}**  
 ....**return this.name.hashCode();**  
-**}**  
+**}**
 <br/> <br/> <br/>
 
 # **Part 9 Summary**
