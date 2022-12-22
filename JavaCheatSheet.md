@@ -66,7 +66,7 @@ The computer remembers where to return after the execution of the method using t
 An ArrayList is a tool to store many values of the same type. We import this tool using **import.java.util.ArrayList**.   
 We can create a new ArrayList with the command **ArrayList<> list = new ArrayList<>();** where we put the variable type in the first set of <>.   
 Value type variables hold their actual values whereas reference type values contain a reference to the location that contains the values relating to that variable.  
-We can add an item to the list using the **.add()** function. We can retrive a value from the list using the **.get(i)** where i is a specific position in the list. We can get the size of the list using the **.size()** function. We can remove a value from the list using the **.remove(i)** where i is a specific position in the list. We can check the existence of a value in a list using the **.contains(value)** where value is the item we are searching for: this function returns true or false.    
+We can add an item to the list using the **.add()** function. We can retrive a value from the list using the **.get(i)** where i is a specific position in the list. We can get the size of the list using the **.size()** function. We can remove a value from the list using the **.remove(i)** where i is a specific position in the list. We can check the existence of a value in a list using the **.contains(value)** where value is the item we are searching for: this function returns true or false. We can clear a list by using the **.clear()** function.       
 When retrieving information from a place that does not exist in the list, you recieve a IndexOutOfBoundsException. 
 ArrayLists can also be used as a parameter for a method and can be returned from a method.  
 
@@ -75,7 +75,8 @@ We can get the size of an array using the **.length** function. It is not a meth
 If the index is pointing outside the array we recieve an ArrayIndexOutOfBoundsException error.  
 Like ArrayLists, Arrays can also be used as a parameter for a method and can be returned from a method.  
 
-We can split a string using the **.split(",");** function. The character in the string denotes where we split the string, in this case it is at the commas. The split method returns an array of the resulting sub-parts.  
+We can split a string using the **.split(",");** function. The character in the string denotes where we split the string, in this case it is at the commas. The split method returns an array of the resulting sub-parts.   
+We can convert all letters of a string to lowercase using the **.toLowerCase()** method. We can remove spaces from beginning and end of the string using the **.trim()** method.
 Splitting strings is used particularly when data is of a fixed format such as csv (comma-seperated values).   
 We can get a single character from the string using the **.charAt(i)** function where i is a specific index. We can get the length of a string using the **.length()** function. This should not be confused with the **.length** function which is used only to find the length of an array, whereas finds the length of a string.   
 We can pause the program by using **Thread.sleep(100);**
@@ -153,3 +154,57 @@ In order to compare two different objects, we must override the **equals()** met
 <br/> <br/> <br/>
 
 # **Part 6 Summary**
+When programming, we usually have a seperate class or interface for the user to interact with instead of having all the code in main. We try to separate the program into several sub-problems and work on only one sub-problem at a time. We also aim to write as clean code as possible which includes: indenting code, use descriptive method and variable names, don't make your methods too long (not even the main method), do only one thing inside one method and remove all copy-paste code. Following these steps makes it easier to read and edit programs when working in teams and adds to maintenance of the program.    
+
+Errors occur in the programs we write. Finding errors as a programs complexity grows makes it more challenging to do so. When an error occurs in a program, it typically prints a stack trace which is the list of methods that resulted in the error.  
+
+Checklist for troubleshooting: indent your code properly and find out if there are any missing parentheses, verify that the variables used are correctly named, test the program flow with different inputs and find out the sort of input that causes the program to not work as desired (If you received an error in the tests, the tests may also indicate the input used), add print commands to the program in which you print out the values of the variables used at various stages of the program's execution and verify that all variables you are using are initialized (If they aren't, a NullPointerException error will occur).  
+
+We can automatically pass input to be read by a Scanner object. For example, the following scans through the string below, instead of asking for user input:   
+**String input = "one\n" + "two\n" + "three\n" + "four\n";**   
+**Scanner reader = new Scanner(input);**  
+The \n refers to a line break, signifying the next line of the scanner.  
+Java's **System.nanoTime()** method returns the time of the computer in nanoseconds. 
+
+Unit testing refers to testing individual components in the source code, such as classes and their methods. The more responsibility a method has, the more complex the test is. If a large application is written in a single method, testing can be very challenging.  
+To test a class we create a test class and import the following:  
+**import static org.junit.Assert.assertEquals;**  
+**import org.junit.Test;**  
+We start off by creating a test method, for example to confirm that a newly created car object   always has an intial value of 0 passengers. We can do this by using the assertEquals function, for example: **assertEquals(0, car.getPassengers())**. Each test method should have an annotation of **@Test** at the top of the method which tells the JUnit framework that it is an executable test method. We can run the tests in the testing section in VSCode.    
+
+Test-driven software development consists of 5 steps: write a test, run the tests and check if the tests pass (if the test passes, the test is most likely erroneous and should be corrected - the test should only test functionality that hasn't yet been implemented), write the functionality that meets the test's requirements, perform the tests (If the tests fail, there is likely to be an error in the functionality written), repair the internal structure of the program.
+<br/> <br/> <br/>
+
+# **Part 7 Summary**
+A programming paradigm is a way of thinking about and structuring a program's functionality.   
+Object-orientated programming involves information being represented as classes that describe the concepts of the problem and logic of the application. They define methods and objects are instantiated during program execution. It makes programs easier to understand.   
+Procedural programming is where the structure of the program is formed by the functionality desired for the program. The program is executed one step at a time. The state of the program is maintained in variables and tables.  
+
+Methods without the static modifier are instance methods whereas methods with the static modifier are class methods. Instance methods are methods that are associated with an object and can process the objects variables and call its other methods. Class methods can only access the variables given as parameters or that they create themselves.   
+
+An Array can be sorted using the **.sort(array);** method. Lists can be sorted using **Collections.sort(list);**  
+
+A linear search is a search algorithm which searches information in an array by going through every value one by one. Wehn the value is found its index is immediately returned. In the worst case scenario, the algorithm has to do as many comparisons as there are values in the array. In an array containing 10 million values, this means 10 million comparisons.  
+A binary search is a search where you look for the value in the middle index of the array/list and compare the value found there to the searched value, and if the value isn't found there it will eliminate half of the search area. Then will repeat on the higher/lower part of the list.
+<br/> <br/> <br/>
+
+# **Part 8 Summary**
+A HashMap is used whenever data is stored as key-value pairs, where values can be added, retrieved and deleted using keys.  
+Each key refers to some value. If the hash map does not contain the key used for the search, its get method returns a null reference. A hashmap has at most one value per key. If we want to assign multiple values to a key, we can use a list as values in a hash map.  
+Using a HashMap requires importing the following statement: **import java.util.HashMap;**  
+Two type parameters are needed when creating a hash map, the type of the key and the value. For example: **HashMap<String, Integer> hashmap = new HashMap<>();**  
+We can enter into the HashMap using the **.put(key, value)** method. We can get a value from the HashMap using the **.get(key)** method which returns a value.  
+The hash map has a maximum of one value per key. If a new key-value pair is added to the hash map, but the key has already been associated with some other value stored in the hash map, the old value will vanish from the hash map.   
+A hashmap generates a hash value from the key, which is used to store the value of a specific location.  
+We can check if a hash map contains a key using the **.containsKey()** method which returns true or false. We can get a list of keys returned by the **.keySet()** method. We can get a list of values returned by the **.values()** method.  
+A hash map only expects reference variables to be added to it like an array list. Int, double and char are primitive variables but Integer, Double, Character are reference variables.  
+The **.getOrDefault(key, 0)** method of the HashMap searches for the key passed into it as a parameter. If the key is not found, it returns the value of the second parameter passed into it.  
+
+For a hashmap we need to define: the equals method so that all equal or approximately equal objects cause the comparison to return true and all false for all the rest and the hashCode method so that as few objects as possible end up with the same hash value.  
+The hashCode method can also be used for approximate comparison of objects. It can be implemented as follows:
+**public int hashCode() {**
+....**if (this.name == null) {**
+........**return this.published;**
+....**}**
+....**return this.name.hashCode();**
+**}**
