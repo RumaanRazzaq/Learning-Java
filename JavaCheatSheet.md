@@ -235,3 +235,68 @@ The Collection interface describes functionality related to collections. Lists a
 <br/> <br/> <br/>
 
 # **Part 10 Summary**
+A stream can be formed from any object that implements the Collection interface using the **.stream()** method. We can map string values to Integers using stream's **.mapToInt(value -> conversion)** method. We can use the **.filter(value -> filter conditon)** method to filter out items we want. We have other methods such as the **.average()**, **.sorted()** and the **.count()** methods. For example, calculating the average of some inputs:  
+
+**double average = inputs.stream()**  
+**____.mapToInt(s -> Integer.valueOf(s))**  
+**____.average()**  
+**____.getAsDouble();**  
+
+We can create a new ArrayList using **.collect(Collectors.toCollection(ArrayList::new));** method.  
+There are 4 terminal operations: count for amount of values in a list, the forEach method for going a through list values, the collect method for gathering the list values ​​into a data structure, and the reduce method for combining the list items. The reduce method can be used in the following format: **reduce(initialState, (previous, object) -> actions on the object)**. For example: **.reduce(0, (previousSum, value) -> previousSum + value)** adds each value in a list together into one sum. The line **.reduce("", (previousString, word) -> previousString + word + "\n")** reduces a list of strings into one string.   
+Intermediate stream operations are methods that return a stream. Streams are very useful when handling objects and files. For example, with files we can use **Files.lines(Paths.get("file.txt")).forEach(row -> rows.add(row));**  
+
+The Comparable interface defines the compareTo method used to compare objects. If a class implements the Comparable interface objects created from that class can be sorted using Java's sorting algorithms. A class can implement several interfaces. We can implement a comparable interface by: **public class Member implements Comparable< Member >**   
+The compareTo method returns an integer that informs us of the order of comparison. We return 0 if the same, -1 if less than and 1 if greater than. We can permenantly sort items using: **Collections.sort(list);**  
+The Comparator class provides two essential methods for sorting: comparing and thenComparing. The comparing method is passed the value to be compared first, and the thenComparing method is the next value to be compared.  
+
+StringBuilder is a way to concatenate strings without the need to create them. A new StringBuilder is created with a **new StringBuilder()**, and content is added to the object using the overloaded **.append()** method. Using StringBuilder is more efficient than creating strings with the + operator.  
+
+A regular expression defines a set of strings in a compact form and is used to verify the correctness of strings.  
+A vertical line (|) indicates that parts of a regular expressions are optional. For example, 00|111|0000 defines the strings 00, 111 and 0000. We can check if a string matches this using: **string.matches(regEx)**. The string must be exactly one of the three.  
+We can use parentheses to determine which part of a regular expression is affected by the rules inside the parentheses. For example, the regular expression 00000|00001 can instead be represented as 0000(0|1).  
+Quantifiers are used if a certain pattern repeats. The * quantifier repeats 0 to infity times so it does not have to appear. The + quantifier repeats 1 to infinity times so it must appear at least once. The ? quantifier repeats 0 or 1 times. The quantifier {a} will repeat a times, for example (10){2} is checking for 1010. The quantifier {a,} repeats a to infinity times so it must appear at least a times. The quantifier {a, b} repeats whatever is in a b amount of times, for example {21, 3} is checking for 212121.  
+A character class can be used to specify a set of characters in a compact way. Characters are enclosed in square brackets, and a range is indicated with a dash. For example, [145] means (1|4|5) and [2-36-9] means (2|3|6|7|8|9). 
+
+If we know the possible values ​​of a variable in advance, we can use a class of type enum to represent the values. For example, we can define a Suit enum like:  
+
+**public enum Suit {**  
+**....DIAMOND, SPADE, CLUB, HEART**  
+**}**  
+
+We can call in the constructor by **Card first = new Card(Suit.HEART);**  
+We can compare two enums with equal signs. Each enum field gets its own unique number code. We can find the numerical identifier of an enum field using **.ordinal()**.  
+Enum type classes cannot have a public constructor. They can have a private constructor. 
+
+ArrayList and other "object containers" that implement the Collection interface implement the Iterable interface, and they can also be iterated over with the help of an iterator - an object specifically designed to go through a particular type of object collection. We can create a new iterator and use it by:
+
+**Iterator< Card > iterator = cards.iterator();**  
+**....while (iterator.hasNext()) {**  
+**........System.out.println(iterator.next());**  
+**....}**
+<br/> <br/> <br/>
+
+# **Part 11 Summary**
+A class diagram is a diagram used in designing and modeling software to describe classes and their relationships. In a class diagram, a class is represented by a rectangle with the name of the class written on top. A line below the name of the class divides the name from the list of attributes (names and types of the class variables). The attributes are written one attribute per line. A + before the attribute name means the attribute is public, and a - means the attribute is private. In a class diagram, class attributes are written "attributeName: attributeType". In a class diagram, we list the constructor (and all other methods) below the attributes. We list all class methods including the constructors; constructors are listed first and then all class methods. We also write the return type of a method in the class diagram. For example, **+setAge(initialAge: int):void**.  
+
+In a class diagram, the connections between classes are shown as arrows. The arrows also show the direction of the connection. If an class contains a list of another class's objects, we can represent this by adding a star to the end of the arrow. If there is no arrowhead in a connection but a straight line between them, both classes know about each other. In a class diagram inheritance is described by an arrow with a triangle head with a hollow head. The triangle points to the class being inherited from. With abstract classes we must add << abstract >> above the name of the class. Interfaces are written << interface >> above the name of the class. Implementing an interface is shown as a dashed arrow with a triangle arrowhead.
+
+It is difficult to remember functionality and methods as number of classes implemented for the program grows so we use packages. The package of a class (the package in which the class is stored) is noted at the beginning of the source code file with the statement **package *name-of-package*;** means the class is in the package library. The package definition **package library.domain** is used to refer to the storage space of the classes that represent concepts of the problem domain. A class can access classes inside a package by using the import statement, for example **import library.domain.Book;**  
+If the access modifier is missing, methods and variables are only visible inside the same package.  
+Application logic is typically kept seperate from the classes that represents the contents of the problem domain. 
+
+When handling exceptions, we can use a **try{} catch (exception e) {}** block structure to handle exceptions. The code within the catch block is executed only if an exception is thrown. The throw command throws an exception. One exception that the user does not have to prepare for is IllegalArgumentException. The IllegalArgumentException tells the user that the values given to a method or a constructor as parameters are wrong. For example, if we only want a parameter between 0 and 5 we could write: **throw new IllegalArgumentException("Grade must be between 0 and 5.");**  
+
+The PrintWriter class offers the functionality to write to files. The constructor of the PrintWriter class receives as its parameter a string that represents the location of the target file. For example, **PrintWriter writer = new PrintWriter("file.txt");** creates a new PrintWriter. We can then use **writer.println("Hello");** to write text to the file. After writng to the file, we use **writer.close();** to close the file and ensures that the written text is saved to the file. 
+<br/> <br/> <br/>
+
+# **Part 12 Summary**
+Generics relates to how classes that store objects can store objects of a freely chosen type. It can be written as: **public class Class<TypeParameter1, TypeParameter2, ...>**. Type parameters are usually defined with a single character. For example, **public class Locker< T >** indicates that the Locker class must contain a type parameter in its constructor. A significant portion of the Java data structures use type parameters such as an ArrayList which recieves one parameter or a HashMap which recieves two.
+
+Java offers a ready-made Random class for creating random numbers. We can write, **Random rand = new Random();** to create an instance of the class. We can use the **.nextInt(a)** method which returns a random number between 0 and a-1. If we want to get a number between -30 and 50, we can create a random number between 0 and 80 and subtract 30. A Random object can also be used to create random doubles to be used for calculating probabilities. Computers simulate probabilities between 0 and 1. To do this we use the **.nextDouble()** method.
+
+We can create multidimensional arrays, for example when dealing with coordinates. We can create a 2D array by: **int[][] twoDimensionalArray = new int[3][5];**  
+We can iterate over a 2D array by using two nested for loops (a loop within a loop). 
+<br/> <br/> <br/>
+
+# **Part 13 Summary**
