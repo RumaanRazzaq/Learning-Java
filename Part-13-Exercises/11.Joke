@@ -1,0 +1,57 @@
+import java.util.Arrays;
+import java.util.Scanner;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class App extends Application{
+
+    @Override
+    public void start(Stage window) {
+
+        GridPane joke = new GridPane();
+        BorderPane information = new BorderPane();
+        Label info = new Label("Why was 6 afraid of 7? Because 7, 8, 9!");
+        Button jokeButton = new Button("Joker");
+        Button answerButton = new Button("Answer");
+        Button explantationButton = new Button("Explanation");
+        joke.add(jokeButton, 0, 0);
+        joke.add(answerButton, 1, 0);
+        joke.add(explantationButton, 2, 0);
+        information.setBottom(info);
+        information.setTop(joke);
+
+        Scene first = new Scene(information);                                                                                                                                                           
+
+        jokeButton.setOnAction((event) -> {
+            info.setText("Why did the chicken cross the road?");
+        });
+
+        answerButton.setOnAction((event) -> {
+            info.setText("To get to the other side!");
+        });
+
+        explantationButton.setOnAction((event) -> {
+            info.setText("No explanation needed.");
+        });
+
+        window.setScene(first);
+        window.show();
+    }
+
+
+    public static void main(String[] args) {
+        launch(App.class);
+    }
+}
