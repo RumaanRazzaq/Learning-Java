@@ -300,3 +300,44 @@ We can iterate over a 2D array by using two nested for loops (a loop within a lo
 <br/> <br/> <br/>
 
 # **Part 13 Summary**
+We can create a window using JavaFX by extending the Application class. This gives us a function to override start. To open the window we use the **.show()** method. To change the title of the application we use the **.setTitle()** method. To launch the method we write **launch(App.class)** in the main.  
+A GUI consists of 3 essential parts: the stage object behaves as the program's window. A scene is set for a Scene object that represents a scene in the window. UI components are added as children to the object responsible for setting them. We can create a button and implement a button by: 
+
+**Button button = new button();**   
+**FlowPane layout = new FlowPane();**    
+**layout.getChildren().add(button);**    
+**Scene scene = new Scene(layout);**   
+**window.setScene(view);**
+
+To use JavaFX we have to import several ready-made libraries such as:  
+**import javafx.scene.control.Label;** to import labels  
+**import javafx.scene.control.Button;** to import buttons, etc.  
+
+We can use labels in the same we we did for buttons. We can add multiple buttons/labels or other components at once. Other components can include a TextField.  
+With a FlowPane, components are added side by side. We can change a FlowPane for a BorderPane which allows us to layout components in 5 different positions: top, bottom, centre, left and right. For example, **layout.setTop(button);**  
+A HBox enables UI components to be set out in a horizontal row. We can use the **.setSpacing()** method to add space between the components. The VBox works very similarly except it sets components in a vertical column.  
+A GridPane is used to layout UI components in a grid. We add an item to the grid by using the **.add(component, x, y)** method where component is the component to be added and x and y refer to the grid coordinates.  
+We can have multiple layout components on a single interface, for example a HBox and a VBox. A typical setup involves using the BorderPlane layout as the base with other layouts inside it. We can add layouts to the BorderPane the same way we add components, for example: **layout.setTop(HBox);**  
+
+Button presses are can be handled by implementing the EventHandler interface. We can represent that in the following two ways:  
+
+**button.setOnAction(new EventHandler< ActionEvent >() {  
+....public void handle(ActionEvent event) {  
+....}  
+}**
+
+**button.setOnAction((event) -> {  
+    System.out.println("Pressed!");  
+});**
+
+The event handler being used depends on what kind of user interface component we attach to it. If we want to listen to the changes made by the a text field for example, we could implement the ChangeListener interface. For example:  
+
+**leftText.textProperty().addListener((change, oldValue, newValue) -> {
+});**
+
+When launching applications outside of the Application class. We can do this by using **Application.launch()** in the other class.  
+We can have user interfaces with multiple views by creating multiple scene objects and transitioning between them.    
+We can pad the sides of the application using the **.setPadding(new Insets(20, 20, 20, 20));** method. 
+<br/> <br/> <br/>
+
+# **Part 14 Summary**
