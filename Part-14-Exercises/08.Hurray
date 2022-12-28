@@ -1,0 +1,30 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
+
+public class App extends Application {
+
+    @Override
+    public void start(Stage arg0) throws Exception { 
+        BorderPane pane = new BorderPane();
+        Button button = new Button("Ring the Bell.");
+        AudioClip sound = new AudioClip("file:bell.wav"); // This is just an example, swap for applause audio file in TMC
+        pane.setCenter(button);
+
+        button.setOnAction((event) -> {  
+            sound.play();
+        });
+
+        Scene view = new Scene(pane);
+
+        arg0.setScene(view);
+        arg0.show();
+    }
+
+    public static void main(String[] args) {
+        launch(App.class);
+    }
+}
