@@ -88,13 +88,14 @@ public class App extends Application {
 
         double savs = 0.0;
         double intrs = 0.0;
+        double interestPercent = (100 + interest) / 100;
 
         for (int i = 0; i < 30; i++) {
             savingsSeries.getData().add(new XYChart.Data(i, savs));
             savingsWithInterestSeries.getData().add(new XYChart.Data(i, intrs));
 
             savs += savings * 12;
-            intrs = (intrs + savings * 12) * (1.0 + interest / 100.0);
+            intrs = (savings * 12) + (intrs * interestPercent);
         }
     }
 
