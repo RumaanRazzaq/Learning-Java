@@ -371,12 +371,12 @@ Bar charts are used to visualize catagorical data. We use CategoryAxis to define
 
 We can draw using a Canvas object. We use a ColourPicker to choose a colour to draw with. We can add an event handler to the canvas to listen to mouse movements: 
 
-**paintingCanvas.setOnMouseDragged((event) -> {
-....double xLocation = event.getX();
-....double yLocation = event.getY();
-....painter.setFill(colorPalette.getValue());
-....painter.fillOval(xLocation, yLocation, 4, 4);
-});**
+**paintingCanvas.setOnMouseDragged((event) -> {  
+....double xLocation = event.getX();  
+....double yLocation = event.getY();  
+....painter.setFill(colorPalette.getValue());    
+....painter.fillOval(xLocation, yLocation, 4, 4);  
+});**  
 
 We can use the Image and ImageView classes to display images by passing the file name as an argument. We also have a lot of methods for image processing tasks such as setRotate, setScaleX and setScaleY. For example: 
 
