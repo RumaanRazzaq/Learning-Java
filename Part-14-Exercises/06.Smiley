@@ -1,0 +1,37 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class App extends Application {
+
+    @Override
+    public void start(Stage arg0) throws Exception { 
+        Canvas paintingCanvas = new Canvas(640, 480);
+        GraphicsContext painter = paintingCanvas.getGraphicsContext2D();
+
+        drawShapes(painter);
+        
+        BorderPane paintingLayout = new BorderPane();
+        paintingLayout.setCenter(paintingCanvas);
+
+        Scene view = new Scene(paintingLayout);
+
+        arg0.setScene(view);
+        arg0.show();
+    }
+
+    private void drawShapes(GraphicsContext painter) {
+        painter.fillRect(90, 60, 25, 25);//left eye
+        painter.fillRect(180, 60, 25, 25);//right eye
+        painter.fillRect(100, 200, 100, 25); //mouth line
+        painter.fillRect(75, 175, 25, 25); //leeft mouth corner
+        painter.fillRect(200, 175, 25, 25);//right mouth courner
+    }
+
+    public static void main(String[] args) {
+        launch(App.class);
+    }
+}
