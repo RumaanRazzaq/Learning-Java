@@ -341,3 +341,51 @@ We can pad the sides of the application using the **.setPadding(new Insets(20, 2
 <br/> <br/> <br/>
 
 # **Part 14 Summary**
+Data visualization presents information in a concise form and can emphasise important points. Java offers lots of pre-made classes for drawing different types of charts including bar charts, area charts and line charts.   
+Line charts can be used to illustrate change that happens over time. Data is illustrated as a line that connects dots in a 2D coordinate system. The x axis represents time and y axis represents value of the variable at each point in time. We start by creating both the y and x axis the chart is going to use, for example: 
+
+**NumberAxis xAxis = new NumberAxis();  
+NumberAxis yAxis = new NumberAxis();  
+xAxis.setLabel("Year");  
+yAxis.setLabel("Relative support (%)");**
+
+Then we create the line chart by:  
+
+**LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);**
+
+Then we create the data set to be entered into the chart: 
+
+**XYChart.Series rkpData = new XYChart.Series();   
+rkpData.setName("RKP");   
+rkpData.getData().add(new XYChart.Data(1968, 5.6));   
+rkpData.getData().add(new XYChart.Data(1972, 5.2));**   
+
+Finally we add the data to line chart and display it:
+
+**lineChart.getData().add(rkpData);   
+Scene view = new Scene(lineChart, 640, 480);**
+
+We can set the bounds of the axis by: **new NumberAxis(1968, 2008, 4);** which sets the xAxis between 1968 and 2008 and each line goes up by 4 ticks. To add each data point automatically we could store the points in a HashMap first then use names of parties as its keys.   
+
+Bar charts are used to visualize catagorical data. We use CategoryAxis to define the x axis. We can use animation timer to visualize dynamic data. It is used to periodically retrieve and create new information for the application. 
+
+We can draw using a Canvas object. We use a ColourPicker to choose a colour to draw with. We can add an event handler to the canvas to listen to mouse movements: 
+
+**paintingCanvas.setOnMouseDragged((event) -> {
+....double xLocation = event.getX();
+....double yLocation = event.getY();
+....painter.setFill(colorPalette.getValue());
+....painter.fillOval(xLocation, yLocation, 4, 4);
+});**
+
+We can use the Image and ImageView classes to display images by passing the file name as an argument. We also have a lot of methods for image processing tasks such as setRotate, setScaleX and setScaleY. For example: 
+
+**Image imageFile = new Image("file:humming.jpg");
+ImageView image = new ImageView(imageFile);**
+
+We can access the separate pixels of an image using a PixelReader object available from the Image class. PixelReader object can be used to go trough an image pixel by pixel, simultaneously writing a new image to a separate WritableImage object.
+
+There are multiple ways to handle sound files. One if which uses AudioClip which is dependent on the JavaFX library: 
+
+**AudioClip sound = new AudioClip("file:bell.wav");
+sound.play();**
