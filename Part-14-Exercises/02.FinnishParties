@@ -1,0 +1,107 @@
+import java.nio.file.Paths;
+import java.util.Scanner;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class App extends Application {
+
+    @Override
+    public void start(Stage arg0) throws Exception { 
+        BorderPane layout = new BorderPane();
+        NumberAxis xAxis= new NumberAxis(1968, 2008, 4);
+        NumberAxis yAxis = new NumberAxis();
+        LineChart<Number,Number> lineChart = new LineChart(xAxis,yAxis);
+        XYChart.Series kok = new XYChart.Series();
+        XYChart.Series sdp = new XYChart.Series();
+        XYChart.Series kesk = new XYChart.Series();
+        XYChart.Series vihr = new XYChart.Series();
+        XYChart.Series vas = new XYChart.Series();
+        XYChart.Series ps = new XYChart.Series();
+        XYChart.Series rkp = new XYChart.Series();
+        kok.setName("KOK");
+        sdp.setName("SDP");
+        kesk.setName("KESK");
+        vihr.setName("VIHR");
+        vas.setName("VAS");
+        ps.setName("PS");
+        rkp.setName("RKP");
+        lineChart.setTitle("Relative support of the parties");        
+        lineChart.getData().add(kok);
+        lineChart.getData().add(sdp);
+        lineChart.getData().add(kesk);
+        lineChart.getData().add(vihr);
+        lineChart.getData().add(vas);
+        lineChart.getData().add(ps);
+        lineChart.getData().add(rkp);
+
+        readFromFile(kok, sdp, kesk, vihr, vas, ps, rkp);
+
+        // layout of border pane
+        layout.setCenter(lineChart);
+        layout.setPadding(new Insets(10, 10, 10, 10));
+
+        // display the line chart
+        Scene view = new Scene(layout);
+        arg0.setScene(view);
+        arg0.show();     
+    }
+
+    private void readFromFile (XYChart.Series kok, XYChart.Series sdp, XYChart.Series kesk, XYChart.Series vihr, XYChart.Series vas, XYChart.Series ps, XYChart.Series rkp) {
+        
+        try(Scanner fileScanner = new Scanner(Paths.get("partiesdata.tsv"))) {
+            while(fileScanner.hasNextLine()) {
+                String line = fileScanner.nextLine();
+                String[] parts = line.split("\t");
+                int year = 1968;
+                if(parts[0].equals("KOK")) {
+                    for(int i = 1; i < parts.length; i++) {
+                        kok.getData().add(new XYChart.Data(year, Double.parseDouble(parts[i])));
+                        year += 4;
+                    }
+                } else if(parts[0].equals("SDP")) {
+                    for(int i = 1; i < parts.length; i++) {
+                        sdp.getData().add(new XYChart.Data(year, Double.parseDouble(parts[i])));
+                        year += 4;
+                    }
+                } else if(parts[0].equals("KESK")) {
+                    for(int i = 1; i < parts.length; i++) {
+                        kesk.getData().add(new XYChart.Data(year, Double.parseDouble(parts[i])));
+                        year += 4;
+                    }
+                } else if(parts[0].equals("VIHR")) {
+                    for(int i = 1; i < parts.length; i++) {
+                        vihr.getData().add(new XYChart.Data(year, Double.parseDouble(parts[i])));
+                        year += 4;
+                    }
+                } else if(parts[0].equals("VAS")) {
+                    for(int i = 1; i < parts.length; i++) {
+                        vas.getData().add(new XYChart.Data(year, Double.parseDouble(parts[i])));
+                        year += 4;
+                    }
+                } else if(parts[0].equals("PS")) {
+                    for(int i = 1; i < parts.length; i++) {
+                        ps.getData().add(new XYChart.Data(year, Double.parseDouble(parts[i])));
+                        year += 4;
+                    }
+                } else if(parts[0].equals("RKP")) {
+                    for(int i = 1; i < parts.length; i++) {
+                        rkp.getData().add(new XYChart.Data(year, Double.parseDouble(parts[i])));
+                        year += 4;
+                    }
+                }
+            }
+        } catch (Exception e) {
+
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(App.class);
+    }
+}
